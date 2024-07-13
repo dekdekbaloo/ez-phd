@@ -2,6 +2,7 @@ import React from "react";
 import template from "./images/template.png";
 import { ASPECT_RATIO } from "./constants";
 import colors from "tailwindcss/colors";
+import { format } from "date-fns";
 
 const Cert = ({ name, faculty }) => {
   return (
@@ -44,6 +45,27 @@ const Cert = ({ name, faculty }) => {
           textAnchor="middle"
         >
           In {faculty}
+        </text>
+        <text
+          x="37"
+          y="64"
+          className="font-amsterdam font-bold capitalize"
+          fontSize={1.2}
+          stroke="black"
+          strokeWidth={0.1}
+          textAnchor="middle"
+        >
+          This {format(new Date(), "do")} day of{" "}
+          {format(new Date(), "MMMM yyyy")}
+        </text>
+        <text
+          x="73.4"
+          y="63.8"
+          className="font-bold capitalize"
+          fontSize={1.2}
+          textAnchor="middle"
+        >
+          CU{format(new Date(), "dMMyyyyss")}
         </text>
       </svg>
     </div>
