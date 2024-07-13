@@ -2,6 +2,8 @@
 
 ใครๆก็มี PHD ได้
 
+[Play](https://ez-phd.web.app/)
+
 ## Features
 
 - Landing page
