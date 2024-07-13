@@ -1,6 +1,6 @@
 # EZ PHD
 
-ใครๆก็มี PHD ได้
+ใครๆก็เป็น dogter ได้
 
 [Play](https://ez-phd.web.app/)
 

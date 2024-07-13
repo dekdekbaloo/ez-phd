@@ -9,6 +9,7 @@ const Landing = () => {
     <div className="w-screen h-screen flex flex-col items-center justify-center gap-10">
       <Background />
       <h1 className="text-white text-9xl font-bold text-center">EZ PHD</h1>
+      <p className="text-white">ใครๆก็เป็น dogter ได้</p>
       <Link to="/wizard">
         <Button className="animate__animated animate__fadeInUp animate__delay-1s">
           Get started
