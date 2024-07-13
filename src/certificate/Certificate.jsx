@@ -71,7 +71,6 @@ const Certificate = () => {
   }, []);
 
   const [certID] = useState(createCertID());
-  const navigate = useNavigate();
   const handleAddToHallOfFame = () => {
     // Write to firebase db
     addToHallOfFame({
