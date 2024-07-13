@@ -71,13 +71,18 @@ const Certificate = () => {
   }, []);
 
   const [certID] = useState(createCertID());
+  const navigate = useNavigate();
   const handleAddToHallOfFame = () => {
     // Write to firebase db
     addToHallOfFame({
       name,
       faculty,
       id: certID,
-    });
+    })
+      .then(() => {
+        navigate("/hall-of-fame");
+      })
+      .catch(console.error);
   };
 
   return (

@@ -8,6 +8,7 @@ import Landing from "./landing/Landing";
 import Wizard from "./wizard/Wizard";
 import Certificate from "./certificate/Certificate";
 import HallOfFame from "./hall-of-fame/HallOfFame";
+import "./lib/firebase";
 
 const router = createBrowserRouter([
   {

@@ -5,7 +5,7 @@ import landingBG from "./images/landing.png";
 const Background = () => {
   return (
     <div
-      className="absolute inset-0 bg-cover blur-md -z-10"
+      className="absolute inset-0 bg-cover bg-center blur-md -z-10"
       style={{ backgroundImage: `url(${landingBG})` }}
     />
   );
