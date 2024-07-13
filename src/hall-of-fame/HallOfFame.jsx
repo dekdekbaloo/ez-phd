@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Background from "../landing/Background";
 import Cert from "../certificate/Cert";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getHallOfFame } from "./services";
+import Button from "../ui/Button";
 
 const HallOfFame = () => {
   // const certificates = [
@@ -57,6 +58,13 @@ const HallOfFame = () => {
               <Cert name={cert.name} faculty={cert.faculty} />
             </div>
           ))}
+        </div>
+      </div>
+      <div className="absolute top-0 w-full pt-4 px-4 flex flex-col md:flex-row justify-between gap-2">
+        <div className="flex gap-2">
+          <Link to="/">
+            <Button>Start over</Button>
+          </Link>
         </div>
       </div>
     </div>
