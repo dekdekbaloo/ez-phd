@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "GregorianFLF";
+    src: url("./assets/fonts/GregorianFLF.ttf");
+  }
+
+  @font-face {
+    font-family: "Amsterdam";
+    src: url("./assets/fonts/Amsterdam.ttf");
+  }
+}

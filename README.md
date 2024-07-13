@@ -8,13 +8,14 @@
   - Background = California University image
   - Enter button (fade in)
   - Links:
-    - Twitter
+    - Twitter (v2)
     - Github
 - Wizard page
   - Steps
     1. Name
-    2. Faculty
-    3. Confirm
+    2. Major
+    3. Faculty
+    4. Confirm
 - Certificate Page
   - Display spining 3d animation
   - Mouse hover will rotate 3d by distance from center

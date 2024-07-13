@@ -3,12 +3,23 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import Root from "./Root";
+import "animate.css";
+import Landing from "./landing/Landing";
+import Wizard from "./wizard/Wizard";
+import Certificate from "./certificate/Certificate";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Landing />,
+  },
+  {
+    path: "/wizard",
+    element: <Wizard />,
+  },
+  {
+    path: "/certificate",
+    element: <Certificate />,
   },
 ]);
 
