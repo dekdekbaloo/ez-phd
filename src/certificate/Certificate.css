@@ -1,0 +1,12 @@
+.cert-container {
+  animation: cert-enter 4s ease-out 1 forwards;
+}
+
+@keyframes cert-enter {
+  from {
+    transform: scale(0.1) rotate3d(0, 1, 0, 0deg);
+  }
+  to {
+    transform: scale(1) rotate3d(0, 1, 0, 1440deg);
+  }
+}

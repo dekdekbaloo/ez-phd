@@ -26,11 +26,17 @@ const Wizard = () => {
     navigate(`/certificate?name=${name}&faculty=${faculty}`);
   };
 
+  const reset = () => {
+    setName("");
+    setFaculty("");
+    setStep(STEP.NAME);
+  };
+
   return (
     <div className="absolute w-screen h-screen flex justify-center items-center text-center">
       <Background />
       <div className="flex flex-col bg-[#adac94] p-8 rounded-md shadow-md gap-10">
-        <h1 className="text-2xl font-bold mb-4">Wizard</h1>
+        <h1 className="text-2xl font-bold mb-4">Fill in your detail</h1>
         <div className="text-left space-y-1 font-gregorian text-lg">
           <div>
             Name: <span className="text-blue-900 capitalize">{name}</span>
@@ -59,9 +65,12 @@ const Wizard = () => {
             />
           </label>
         )}
-        <Button className="block ml-auto" onClick={next}>
-          Next
-        </Button>
+        <div className="flex items-center justify-between">
+          <div className="underline" onClick={reset}>
+            reset
+          </div>
+          <Button onClick={next}>Next</Button>
+        </div>
       </div>
     </div>
   );
