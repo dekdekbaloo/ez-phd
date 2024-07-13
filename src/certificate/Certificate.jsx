@@ -17,6 +17,7 @@ const Certificate = () => {
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
   const faculty = searchParams.get("faculty");
+  const id = searchParams.get("id");
   const navigate = useNavigate();
 
   const handleExport = async () => {
@@ -36,10 +37,6 @@ const Certificate = () => {
       certElement.clientHeight
     );
     pdf.save("certificate.pdf");
-  };
-
-  const handleNavigation = () => {
-    navigate("/hall-of-fame");
   };
 
   const [ready, setReady] = useState(false);
@@ -70,7 +67,7 @@ const Certificate = () => {
     };
   }, []);
 
-  const [certID] = useState(createCertID());
+  const [certID] = useState(id || createCertID());
   const handleAddToHallOfFame = () => {
     // Write to firebase db
     addToHallOfFame({
@@ -124,8 +121,12 @@ const Certificate = () => {
           </Link>
         </div>
         <div className="flex gap-2">
-          <Button onClick={handleExport}>Export</Button>
-          <Button onClick={handleAddToHallOfFame}>Add to hall of fame</Button>
+          <Button onClick={handleExport} disabled={id}>
+            Export
+          </Button>
+          <Button onClick={handleAddToHallOfFame} disabled={id}>
+            Add to hall of fame
+          </Button>
         </div>
       </div>
     </div>
