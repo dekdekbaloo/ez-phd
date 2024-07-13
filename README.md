@@ -22,4 +22,4 @@
   - Export pdf
   - Display "hall of fame" button
 - Hall of Fame page
-  - Display bunch of certificates by saved
+  - Display bunch of certificates saved

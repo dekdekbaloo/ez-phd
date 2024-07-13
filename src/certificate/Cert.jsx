@@ -4,10 +4,9 @@ import { ASPECT_RATIO } from "./constants";
 import colors from "tailwindcss/colors";
 import { format } from "date-fns";
 
-const Cert = ({ name, faculty }) => {
+const Cert = ({ name, faculty, certID }) => {
   return (
     <div
-      id="cert-element"
       className="relative"
       style={{
         width: "100%",
@@ -66,7 +65,7 @@ const Cert = ({ name, faculty }) => {
           fontSize={1.2}
           textAnchor="middle"
         >
-          CU{format(new Date(), "dMMyyyyss")}
+          {certID}
         </text>
       </svg>
     </div>

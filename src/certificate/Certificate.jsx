@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Cert from "./Cert";
 import Button from "../ui/Button";
 import Background from "../landing/Background";
@@ -10,6 +10,8 @@ import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import template from "./images/template.png";
 import clsx from "clsx";
+import { addToHallOfFame } from "./services";
+import { createCertID } from "./utils";
 
 const Certificate = () => {
   const [searchParams] = useSearchParams();
@@ -68,6 +70,16 @@ const Certificate = () => {
     };
   }, []);
 
+  const [certID] = useState(createCertID());
+  const handleAddToHallOfFame = () => {
+    // Write to firebase db
+    addToHallOfFame({
+      name,
+      faculty,
+      id: certID,
+    });
+  };
+
   return (
     <div
       className="w-screen h-screen flex justify-center items-center"
@@ -86,23 +98,30 @@ const Certificate = () => {
               confetti
                 ? {
                     // rotate3D based on mouse position diff from center
-                    transform: `rotate3d(${(y - height / 2) / 1000}, ${
-                      -(x - width / 2) / 1000
+                    transform: `rotate3d(${(y - height / 2) / -1000}, ${
+                      (x - width / 2) / 1000
                     }, 0, 5deg)`,
                   }
                 : {}
             }
           >
-            <Cert name={name} faculty={faculty} />
+            <Cert name={name} faculty={faculty} certID={certID} />
           </div>
         </>
       )}
       {confetti && <Confetti width={width} height={height} />}
-      <div className="absolute top-0 w-full pt-4 px-4 flex justify-between">
-        <Button onClick={handleNavigation}>Hall of fame</Button>
-        <div className="space-x-2">
+      <div className="absolute top-0 w-full pt-4 px-4 flex flex-col md:flex-row justify-between gap-2">
+        <div className="flex gap-2">
+          <Link to="/">
+            <Button>Start over</Button>
+          </Link>
+          <Link to="/hall-of-fame">
+            <Button>Hall of fame</Button>
+          </Link>
+        </div>
+        <div className="flex gap-2">
           <Button onClick={handleExport}>Export</Button>
-          <Button>Add to hall of fame</Button>
+          <Button onClick={handleAddToHallOfFame}>Add to hall of fame</Button>
         </div>
       </div>
     </div>
