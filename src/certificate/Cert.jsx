@@ -7,6 +7,7 @@ import { format } from "date-fns";
 const Cert = ({ name, faculty }) => {
   return (
     <div
+      id="cert-element"
       className="relative"
       style={{
         width: "100%",
