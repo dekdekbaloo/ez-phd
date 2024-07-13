@@ -7,6 +7,7 @@ import "animate.css";
 import Landing from "./landing/Landing";
 import Wizard from "./wizard/Wizard";
 import Certificate from "./certificate/Certificate";
+import HallOfFame from "./hall-of-fame/HallOfFame";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/certificate",
     element: <Certificate />,
+  },
+  {
+    path: "/hall-of-fame",
+    element: <HallOfFame />,
   },
 ]);
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Cert from "./Cert";
 import Button from "../ui/Button";
 import Background from "../landing/Background";
@@ -15,6 +15,7 @@ const Certificate = () => {
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
   const faculty = searchParams.get("faculty");
+  const navigate = useNavigate();
 
   const handleExport = async () => {
     const certElement = document.getElementById("cert-element");
@@ -33,6 +34,10 @@ const Certificate = () => {
       certElement.clientHeight
     );
     pdf.save("certificate.pdf");
+  };
+
+  const handleNavigation = () => {
+    navigate("/hall-of-fame");
   };
 
   const [ready, setReady] = useState(false);
@@ -94,7 +99,7 @@ const Certificate = () => {
       )}
       {confetti && <Confetti width={width} height={height} />}
       <div className="absolute top-0 w-full pt-4 px-4 flex justify-between">
-        <Button>Hall of fame</Button>
+        <Button onClick={handleNavigation}>Hall of fame</Button>
         <div className="space-x-2">
           <Button onClick={handleExport}>Export</Button>
           <Button>Add to hall of fame</Button>
