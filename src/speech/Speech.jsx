@@ -13,7 +13,7 @@ const Speech = () => {
         Speech from our alumni
       </h1>
       <div className="w-8/12">
-        <LiteYouTubeEmbed id="ejra93oc488" autoplay />
+        <LiteYouTubeEmbed id="VbPv96wvDVc" params="start=120" />
       </div>
       <Link to="/">
         <Button className="absolute top-4 left-4">Start</Button>
