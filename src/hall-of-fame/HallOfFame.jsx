@@ -55,7 +55,7 @@ const HallOfFame = () => {
                 )
               }
             >
-              <Cert name={cert.name} faculty={cert.faculty} />
+              <Cert name={cert.name} faculty={cert.faculty} certID={cert.id} />
             </div>
           ))}
         </div>
