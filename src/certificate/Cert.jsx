@@ -1,5 +1,4 @@
 import React from "react";
-import template from "./images/template.png";
 import { ASPECT_RATIO } from "./constants";
 import colors from "tailwindcss/colors";
 import { format } from "date-fns";
@@ -14,8 +13,12 @@ const Cert = ({ name, faculty, certID }) => {
         paddingBottom: `${100 / ASPECT_RATIO}%`,
       }}
     >
-      <svg viewBox="0 0 100 77" preserveAspectRatio="xMidYMid meet">
-        <image href={template} width="100" />
+      <img src="/template.png" className="absolute inset-0 -z-10" />
+      <svg
+        viewBox="0 0 100 77"
+        preserveAspectRatio="xMidYMid meet"
+        className="cert"
+      >
         <text
           x="55"
           y="31"

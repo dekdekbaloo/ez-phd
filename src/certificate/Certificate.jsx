@@ -4,11 +4,9 @@ import Cert from "./Cert";
 import Button from "../ui/Button";
 import Background from "../landing/Background";
 import { toPng } from "html-to-image";
-import { jsPDF } from "jspdf";
 import "./Certificate.css";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
-import template from "./images/template.png";
 import clsx from "clsx";
 import { addToHallOfFame } from "./services";
 import { createCertID } from "./utils";
@@ -22,6 +20,11 @@ const Certificate = () => {
 
   const handleExport = async () => {
     const certElement = document.getElementById("cert-element");
+
+    // HACK: workaround for safari
+    await toPng(certElement);
+    await toPng(certElement);
+    await toPng(certElement);
     const pngDataUrl = await toPng(certElement);
     const link = document.createElement("a");
     link.download = "certificate.png";
@@ -33,7 +36,7 @@ const Certificate = () => {
   useEffect(() => {
     // wait template.png to load
     const img = new Image();
-    img.src = template;
+    img.src = "/template.png";
     img.onload = () => setReady(true);
   }, []);
 
@@ -111,7 +114,7 @@ const Certificate = () => {
           </Link>
         </div>
         <div className="flex gap-2">
-          <Button onClick={handleExport} disabled={id}>
+          <Button onClick={handleExport} disabled={id || !confetti}>
             Export
           </Button>
           <Button onClick={handleAddToHallOfFame} disabled={id}>
