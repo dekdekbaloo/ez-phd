@@ -10,11 +10,18 @@ const Landing = () => {
       <Background />
       <h1 className="text-white text-9xl font-bold text-center">EZ PHD</h1>
       <p className="text-white">ใครๆก็เป็น dogter ได้</p>
-      <Link to="/wizard">
-        <Button className="animate__animated animate__fadeInUp animate__delay-1s">
-          Get started
-        </Button>
-      </Link>
+      <div className="flex gap-x-2">
+        <Link to="/wizard">
+          <Button className="animate__animated animate__fadeInUp animate__delay-1s">
+            Get started
+          </Button>
+        </Link>
+        <Link to="/speech">
+          <Button className="animate__animated animate__fadeInUp animate__delay-2s">
+            Speech from alumni
+          </Button>
+        </Link>
+      </div>
       <a
         className="absolute bottom-20 w-10"
         href="https://github.com/dekdekbaloo/ez-phd"

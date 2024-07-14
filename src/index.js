@@ -9,11 +9,16 @@ import Wizard from "./wizard/Wizard";
 import Certificate from "./certificate/Certificate";
 import HallOfFame from "./hall-of-fame/HallOfFame";
 import "./lib/firebase";
+import Speech from "./speech/Speech";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Landing />,
+  },
+  {
+    path: "/speech",
+    element: <Speech />,
   },
   {
     path: "/wizard",
