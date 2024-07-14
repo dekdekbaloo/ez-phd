@@ -23,20 +23,10 @@ const Certificate = () => {
   const handleExport = async () => {
     const certElement = document.getElementById("cert-element");
     const pngDataUrl = await toPng(certElement);
-    const pdf = new jsPDF({
-      orientation: "landscape",
-      unit: "px",
-      format: [certElement.clientWidth, certElement.clientHeight],
-    });
-    pdf.addImage(
-      pngDataUrl,
-      "PNG",
-      0,
-      0,
-      certElement.clientWidth,
-      certElement.clientHeight
-    );
-    pdf.save("certificate.pdf");
+    const link = document.createElement("a");
+    link.download = "certificate.png";
+    link.href = pngDataUrl;
+    link.click();
   };
 
   const [ready, setReady] = useState(false);
